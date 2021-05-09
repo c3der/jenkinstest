@@ -1,0 +1,16 @@
+FROM node@sha256:ed51af876dd7932ce5c1e3b16c2e83a3f58419d824e366de1f7b00f40c848c40
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Install dependencies
+COPY package.json .
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+# Exports
+EXPOSE 3000
+CMD [ "npm", "run", "start.dev" ]

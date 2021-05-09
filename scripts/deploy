@@ -1,5 +1,6 @@
 #!/bin/sh
-  ssh -p 57775 jenkins@159.89.101.7 <<EOF
+
+  ssh -p 57775 jenkins:pwd@159.89.101.7 <<EOF
   git pull
   npm install
   pm2 restart all
